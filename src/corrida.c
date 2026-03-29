@@ -1,4 +1,3 @@
-#define _XOPEN_SOURCE 700
 #define _POSIX_C_SOURCE 200809L
 #include <stdio.h>
 #include <stdlib.h>
@@ -46,6 +45,9 @@ void *corrida(void *arg) {
         if (cavalo->progresso > DISTANCIA)
             cavalo->progresso = DISTANCIA;
 
+        pthread_mutex_lock(&mutex);
+        imprimirProgresso(cavalo->progresso, cavalo->id);
+        pthread_mutex_unlock(&mutex);
         usleep((rand_r(&seed) % 300 + 100) * 1000);
     }
 

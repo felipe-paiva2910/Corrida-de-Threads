@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
     printf("\033[2J");
     Cavalo cavalos[NUM_CAVALOS];
 
-    srand(time(NULL));
+    setbuf(stdout, NULL);
 
     if (argc > 1) {
         usar_barreira = atoi(argv[1]);
